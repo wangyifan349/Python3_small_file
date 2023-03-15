@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+#encoding:utf-8
+#这个程序就是为了调用函数块写的。
 import os
 import requests
 from bs4 import BeautifulSoup
@@ -39,7 +42,7 @@ def crawl_images_and_text(url, img_folder, text_file):
     with open(text_file, 'w') as f:
         for text in soup.stripped_strings:#遍历所有的字符串，并去除前后空格
             f.write(text + '\n')
-    save_hyperlinks(soup, links_file)
+    save_hyperlinks(soup, links_file)#存储超链接的函数块。
     
 if __name__ == '__main__':
     url = input("请输入要爬取的网址：")
