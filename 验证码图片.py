@@ -10,8 +10,8 @@ def generate_captcha(noise=0.06):
     font = ImageFont.truetype("arial.ttf", font_size)#使用的字体是"Arial"，它在Windows和Mac OS X操作系统中都是默认安装的常用字体之一。
     
     # 定义随机字符集
+    #chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     chars = string.ascii_letters + string.digits  # 包含所有大小写字母和数字
-    
     # 创建图像对象
     image = Image.new('RGB', (width,height), color = (255,255,255))
     draw = ImageDraw.Draw(image)
