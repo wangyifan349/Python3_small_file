@@ -86,8 +86,8 @@ def check_integrity(filename):
 
 
 # 示例用法
-filename = "example_file.txt"  # 替换为你的文件名
-num_chunks = 5  # 替换为你要分割的文件块数量
+filename = "我的大文件.7z"  # 替换为你的文件名
+num_chunks = 20  # 替换为你要分割的文件块数量
 
 split_file(filename, num_chunks)
 join_files("joined_file.txt")
