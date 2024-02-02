@@ -19,8 +19,14 @@ def extract_strings(data, strings=None):
                 extract_strings(item, strings)
     return strings
 
-# 指定包含JSON文件的目录
-json_directory = str(input("输入你的目录"))
+import os
+
+json_directory = input("输入你的目录: ")
+if os.path.exists(json_directory):
+    print("目录存在! 📁")
+else:
+    print("目录不存在! ❌")
+  
 
 # 使用os.walk遍历目录及其所有子目录
 for root, dirs, files in os.walk(json_directory):
