@@ -20,7 +20,7 @@ def extract_strings(data, strings=None):
     return strings
 
 # 指定包含JSON文件的目录
-json_directory = 'path/to/json_directory'  # 替换为你的JSON文件所在的目录路径
+json_directory = str(input("输入你的目录"))
 
 # 使用os.walk遍历目录及其所有子目录
 for root, dirs, files in os.walk(json_directory):
