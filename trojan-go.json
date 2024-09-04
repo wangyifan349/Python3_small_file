@@ -1,0 +1,58 @@
+{
+  "run_type": "server",  // 运行模式，server 表示服务器模式
+  "local_addr": "0.0.0.0",  // 本地监听地址
+  "local_port": 443,  // 本地监听端口
+
+  "remote_addr": "127.0.0.1",  // 远程地址（Trojan-Go 后端的实际服务地址）
+  "remote_port": 80,  // 远程端口（Trojan-Go 后端的实际服务端口）
+
+  "password": [
+    "your_password_here" // 用户连接时需要的密码，可以添加多个密码
+  ],
+
+  "ssl": {
+    "cert": "/path/to/your/fullchain.pem",  // SSL 证书路径
+    "key": "/path/to/your/privkey.pem",  // SSL 证书密钥路径
+    "sni": "your.domain.com",  // 伪装域名，必须与证书匹配
+    "fallback_port": 80  // 未匹配 SNI 的请求将被转发到的端口
+  },
+
+  "websocket": {
+    "enabled": true,  // 启用 WebSocket 传输
+    "path": "/your_ws_path",  // WebSocket 路径
+    "host": "your.domain.com"  // WebSocket Host 头
+  },
+
+  "mux": {
+    "enabled": true,  // 启用多路复用
+    "concurrency": 8  // 最大并发连接数
+  },
+
+  "router": {
+    "enabled": true,  // 启用路由功能
+    "bypass": [
+      "geoip:cn",  // 绕过中国大陆 IP
+      "geoip:private"  // 绕过私有 IP
+    ],
+    "block": [
+      "geoip:ir",  // 阻止伊朗 IP
+      "geoip:sy",  // 阻止叙利亚 IP
+      "geoip:ru",  // 阻止俄罗斯 IP
+      "geosite:category-ads"  // 阻止广告域名
+    ],
+    "proxy": [
+      "geosite:geolocation-!cn"  // 代理非中国大陆网站
+    ]
+  },
+
+  "web": {
+    "enabled": true,  // 启用 Web 伪装
+    "address": "https://www.example.com",  // 伪装网站地址
+    "path": "/your_web_path"  // 伪装网站路径
+  },
+
+  "log": {
+    "level": 1,  // 日志级别，0: Debug, 1: Info, 2: Warning, 3: Error, 4: Fatal
+    "file": "/path/to/your/trojan-go.log"  // 日志文件路径
+  }
+}
